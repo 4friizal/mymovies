@@ -4,7 +4,7 @@ import "./../index.css";
 class OptionFilm extends React.Component {
   render() {
     return (
-      <div className="lg:flex lg:justify-around">
+      <div className="lg:w-full lg:flex lg:justify-center">
         <div>
           <img
             className="mx-auto md:mx-4 w-64 h-[23rem]  drop-shadow-lg pt-10 lg:w-44 lg:h-60"
