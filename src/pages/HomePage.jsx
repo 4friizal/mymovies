@@ -32,9 +32,9 @@ export class HomePage extends Component {
 
   render() {
     return (
-      <div className="w-full">
+      <div className="w-full mb-10">
         <Header />
-        <h1 className="text-center text-4xl my-8 font-medium md:mb-10 md:tracking-wider md:font-semibold">
+        <h1 className="text-center text-5xl my-8 font-oswald md:mb-10 md:tracking-wider md:font-semibold">
           Now Playing
         </h1>
         <div className="flex flex-wrap justify-center md:flex md:flex-row md:flex-wrap md:justify-center">

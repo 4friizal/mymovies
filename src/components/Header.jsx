@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 class Header extends React.Component {
   render() {
     return (
-      <div className="shadow-lg">
+      <div className="shadow-lg shadow-slate-400">
         <div className="sticky top-0 mx-auto px-4 p-7 flex justify-between items-center lg:p-5">
           <>
             <Link to="/">
@@ -16,13 +16,29 @@ class Header extends React.Component {
               </button>
             </Link>
           </>
+          <div className="hidden lg:flex lg:items-center lg:justify-center">
+            <div className="lg:flex lg:border-2 lg:rounded-full">
+              <input
+                type="text"
+                className=" lg:px-4 lg:py-2 lg:w-80 lg:rounded-l-full"
+                placeholder="Search..."
+              />
+              <button className="lg:flex lg:items-center lg:justify-center lg:px-4 lg:border-l">
+                <img
+                  className="lg:w-8"
+                  src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-512.png"
+                  alt="search"
+                />
+              </button>
+            </div>
+          </div>
           <div>
             <Link to="/favorites">
               <img
                 src="https://www.svgrepo.com/show/48915/favorite.svg"
                 alt="test"
               />
-              <button className="hidden md:flex md:items-center md:text-sm md:font-bold md:text-white lg:text-sm lg:mr-6"></button>
+              <button className="md:flex md:items-center md:text-sm md:font-bold md:text-white lg:text-sm lg:mr-6"></button>
             </Link>
           </div>
         </div>

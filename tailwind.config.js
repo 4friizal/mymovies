@@ -8,6 +8,7 @@ module.exports = {
         roboto: ["Roboto", "sans-serif"],
         poppins: ["Poppins", "sans-serif"],
         neue: ["Bebas Neue", "cursive"],
+        oswald: ["Oswald", "sans-serif"],
       },
     },
   },
