@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "../components/Header";
 import Card from "../components/Card";
 import axios from "axios";
+import { WithRouter } from "../utils/Navigation";
 
 export class HomePage extends Component {
   // constructor
@@ -22,7 +23,6 @@ export class HomePage extends Component {
       .then((response) => {
         const { results } = response.data;
         this.setState({ datas: results });
-        console.log(results);
       })
       .catch((error) => {
         alert(error.toString());
@@ -34,12 +34,18 @@ export class HomePage extends Component {
     return (
       <div className="w-full">
         <Header />
-        <h1 className="text-center text-4xl my-8 font-medium md:mb-0 md:tracking-wider md:font-semibold">
+        <h1 className="text-center text-4xl my-8 font-medium md:mb-10 md:tracking-wider md:font-semibold">
           Now Playing
         </h1>
-        <div className="md:grid md:grid-flow-row md:auto-rows-max md:grid-cols-3 md:gap-1 lg:grid-cols-5">
+        <div className="flex flex-wrap justify-center md:flex md:flex-row md:flex-wrap md:justify-center">
           {this.state.datas.map((data) => (
-            <Card key={data.id} title={data.title} img={data.poster_path} />
+            <Card
+              key={data.id}
+              title={data.title}
+              img={data.poster_path}
+              vote={data.vote_average}
+              navigate={`/detail/${data.id}`}
+            />
           ))}
         </div>
       </div>
@@ -47,4 +53,4 @@ export class HomePage extends Component {
   }
 }
 
-export default HomePage;
+export default WithRouter(HomePage);
