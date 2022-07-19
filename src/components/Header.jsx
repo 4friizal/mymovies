@@ -39,7 +39,7 @@ const Header = () => {
         </>
 
         <div className="flex">
-          <div className="mr-5">
+          <div className="mr-5 lg:hidden">
             {thema === "dark" ? (
               <IoSunny
                 size={20}
