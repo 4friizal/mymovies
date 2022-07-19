@@ -1,14 +1,16 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import HomePage from "../pages/HomePage";
 import DetailMovies from "../pages/DetailMovies";
 import FavoriteMovies from "../pages/FavoriteMovies";
-import { Link } from "react-router-dom";
 
 import { ThemaContext } from "../utils/thema";
+import { reduxAction } from "../utils/redux/action/action";
 
 const App = () => {
+  const dispatch = useDispatch();
   const [thema, setThema] = useState("light");
 
   const background = useMemo(() => ({ thema, setThema }), [thema]);
@@ -20,6 +22,13 @@ const App = () => {
       document.documentElement.classList.remove("dark");
     }
   }, [thema]);
+
+  useEffect(() => {
+    const getMovies = localStorage.getItem("favmovies");
+    if (getMovies) {
+      dispatch(reduxAction("ADD_FAVORITE", JSON.perse(getMovies)));
+    }
+  });
 
   return (
     <ThemaContext.Provider value={background}>
@@ -35,9 +44,6 @@ const App = () => {
                 <h1 className=" text-slate-400">
                   Page not found 404............
                 </h1>
-                <Link className="ml-2 text-slate-700 hover:underline" to="/">
-                  Back to Page
-                </Link>
               </div>
             }
           />

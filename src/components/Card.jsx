@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { MdOutlineFavorite, MdOutlineStarPurple500 } from "react-icons/md";
+import { MdOutlineStarPurple500 } from "react-icons/md";
+import { Button } from "./Button";
 
 const Card = (props) => {
   return (
-    <div className="shadow-lg m-1 rounded-lg lg:hover:scale-105 lg:hover:-translate-y-3 lg:hover:bg-black lg:hover:text-white relative flex flex-col dark:bg-slate-400 dark:shadow-white">
+    <div className="shadow-lg m-1 rounded-lg lg:hover:scale-105 lg:hover:-translate-y-3 lg:hover:bg-black lg:hover:text-white relative flex flex-col justify-between dark:bg-slate-400 dark:shadow-white">
       <Link to={props.navigate}>
         <img
           className="w-32 h-auto m-2 rounded-[6px] md:w-56 lg:w-48 lg:hover:opacity-50"
@@ -23,15 +24,11 @@ const Card = (props) => {
           <MdOutlineStarPurple500 />
         </h6>
       </Link>
-      <MdOutlineFavorite
+      <Button label="Add Favorite" onClick={props.onClick} />
+      {/* <MdOutlineFavorite
         className=" absolute w-7 top-1 right-4 lg:w-8 lg:top-3 lg:right-4"
         size={50}
         color="red"
-      />
-      {/* <img
-        className="w-8 absolute top-4 right-4"
-        src="https://www.svgrepo.com/show/48915/favorite.svg"
-        alt="test"
       /> */}
     </div>
   );
