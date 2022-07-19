@@ -24,9 +24,9 @@ const App = () => {
   }, [thema]);
 
   useEffect(() => {
-    const getMovies = localStorage.getItem("favmovies");
+    const getMovies = localStorage.getItem("favMovies");
     if (getMovies) {
-      dispatch(reduxAction("ADD_FAVORITE", JSON.perse(getMovies)));
+      dispatch(reduxAction("ADD_FAVORITE", JSON.parse(getMovies)));
     }
   });
 
