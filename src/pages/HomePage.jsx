@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import axios from "axios";
+
 import Header from "../components/Header";
 import Card from "../components/Card";
-import axios from "axios";
 import { WithRouter } from "../utils/Navigation";
+import { reduxAction } from "../utils/redux/action/action";
 
 const HomePage = () => {
+  const dispatch = useDispatch();
   const [datas, setData] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -23,7 +27,6 @@ const HomePage = () => {
         `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`
       )
       .then((response) => {
-        console.log(response);
         const { results } = response.data;
         setData(results);
       })
@@ -31,6 +34,20 @@ const HomePage = () => {
         alert(error.toString());
       })
       .finally(() => setLoading(false));
+  };
+
+  const handelFav = (movie) => {
+    const getMovies = localStorage.getItem("favMovies");
+    if (getMovies) {
+      const parsedMovies = JSON.parse(getMovies);
+      parsedMovies.push(movie);
+      localStorage.setItem("favMovies", JSON.stringify(parsedMovies));
+      dispatch(reduxAction("ADD_FAVORITE", parsedMovies));
+    } else {
+      localStorage.setItem("favMovies", JSON.stringify([movie]));
+      dispatch(reduxAction("ADD_FAVORITE", [movie]));
+    }
+    alert("movie added to favorites");
   };
 
   return (
@@ -48,6 +65,7 @@ const HomePage = () => {
               img={data.poster_path}
               vote={data.vote_average}
               navigate={`/detail/${data.id}`}
+              onClick={() => handelFav(data)}
             />
           ))}
         </div>

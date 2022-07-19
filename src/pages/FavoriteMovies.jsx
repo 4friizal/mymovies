@@ -1,21 +1,29 @@
 import React from "react";
-import { WithRouter } from "../utils/Navigation";
-import { Link } from "react-router-dom";
-import { Button } from "../components/Button";
-import Header from "../components/Header";
+import { useSelector } from "react-redux";
 
-const FavoriteMovies = () => {
+import Header from "../components/Header";
+import Card from "../components/Card";
+import { WithRouter } from "../utils/Navigation";
+
+const MyFavorite = () => {
+  const favorites = useSelector((state) => state.favorites);
   return (
     <div>
       <Header />
-      <div className="flex flex-col justify-center items-center">
-        <h1 className="text-8xl text-red-400">PAGE NOT READY!!!</h1>
-        <Link to="/">
-          <Button label="Back" />
-        </Link>
+      <div className="flex flex-wrap">
+        {favorites.map((data) => (
+          <Card
+            data={data}
+            key={data.id}
+            title={data.title}
+            img={data.poster_path}
+            vote={data.vote_average}
+            navigate={`/detail/${data.id}`}
+          />
+        ))}
       </div>
     </div>
   );
 };
 
-export default WithRouter(FavoriteMovies);
+export default WithRouter(MyFavorite);
