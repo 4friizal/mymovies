@@ -27,7 +27,7 @@ const Header = () => {
   };
 
   return (
-    <div className="sticky top-0 shadow-lg bg-white dark:bg-black shadow-slate-400 z-10">
+    <div className="sticky top-0 shadow-lg bg-white dark:bg-black shadow-slate-400 dark:shadow-slate-700 z-10">
       <div className="mx-auto px-4 py-5 flex justify-between items-center lg:py-7 lg:box-border">
         <>
           <Link to="/">
@@ -118,7 +118,13 @@ const Header = () => {
             <ul className="mr-5 lg:hover:text-black">Home</ul>
           </Link>
           <Link to="/favorites">
-            <ul className="lg:hover:text-black">Favotite</ul>
+            <button
+              type="button"
+              className="lg:text-black/30 dark:lg:text-white/30 cursor-no-drop"
+              disabled
+            >
+              Favotite
+            </button>
           </Link>
         </div>
       </div>

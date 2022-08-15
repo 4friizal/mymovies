@@ -57,7 +57,7 @@ const HomePage = () => {
         <h1 className="text-center text-5xl pt-8 font-oswald md:mb-10 md:tracking-wider md:font-semibold dark:text-white">
           Now Playing
         </h1>
-        <div className="flex flex-wrap justify-center md:flex md:flex-row md:flex-wrap md:justify-center ">
+        <div className="flex flex-wrap justify-center md:flex md:flex-row md:flex-wrap md:justify-center gap-3">
           {datas.map((data) => (
             <Card
               key={data.id}
