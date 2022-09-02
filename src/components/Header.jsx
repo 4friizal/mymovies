@@ -75,29 +75,11 @@ const Header = () => {
             <Link to="/">
               <li className=" border-b-2 mb-2 py-1">Home</li>
             </Link>
-            <Link to="/favorites">
+            {/* <Link to="/favorites">
               <li className=" border-b-2 pb-1">Favorite</li>
-            </Link>
+            </Link> */}
           </ul>
         </div>
-        {/* search button */}
-        <div className="hidden lg:flex lg:items-center lg:justify-center">
-          <div className="lg:flex lg:border-2 lg:rounded-full">
-            <input
-              type="text"
-              className=" lg:px-4 lg:py-2 lg:w-80 lg:rounded-l-full"
-              placeholder="Search..."
-            />
-            <button className="lg:flex lg:items-center lg:justify-center lg:px-4 lg:border-l">
-              <img
-                className="lg:w-8"
-                src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-512.png"
-                alt="search"
-              />
-            </button>
-          </div>
-        </div>
-        {/* navbar */}
         <div className="hidden lg:flex lg:text-red-600 lg:mr-3 lg:font-poppins lg:text-base lg:font-bold">
           <div className="mr-5">
             {thema === "dark" ? (

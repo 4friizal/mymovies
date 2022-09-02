@@ -6,7 +6,7 @@ import { Button } from "./Button";
 const Card = (props) => {
   return (
     <div className="shadow-lg m-1 rounded-lg lg:hover:scale-105 lg:hover:-translate-y-3 lg:hover:bg-black lg:hover:text-white relative flex flex-col justify-between dark:bg-slate-400 dark:shadow-slate-600">
-      <Link to={props.navigate}>
+      <Link to={props.navigate} reloadDocument>
         <img
           className="w-32 h-auto m-2 rounded-[6px] md:w-56 lg:w-48 lg:hover:opacity-50"
           src={
